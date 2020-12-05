@@ -135,6 +135,8 @@ void Solver::solve(const string &file_name) {
 	createfromFile(file_name);
 	initStack(num_variables());
 
+	//config_.quiet = true;
+
 	if (!config_.quiet) {
 		cout << "Solving " << file_name << endl;
 		statistics_.printShortFormulaInfo();
@@ -173,9 +175,14 @@ void Solver::solve(const string &file_name) {
 	statistics_.time_elapsed_ = stopwatch_.getElapsedSeconds();
 
 	comp_manager_.gatherStatistics();
-	statistics_.writeToFile("data.out");
-	if (!config_.quiet)
+	//statistics_.writeToFile("data.out");
+	if (!config_.quiet) {
 		statistics_.printShort();
+	}
+	else {
+		statistics_.print_final_solution_count();
+	}
+
 }
 
 SOLVER_StateT Solver::countSAT() {

@@ -55,7 +55,7 @@ ComponentCache::ComponentCache(DataAndStatistics &statistics) :
 
 void ComponentCache::init(Component &super_comp) {
 
-    cout << sizeof(CacheableComponent) << " " << sizeof(mpz_class) << endl;
+    //cout << sizeof(CacheableComponent) << " " << sizeof(mpz_class) << endl;
     CacheableComponent &packed_super_comp = *new CacheableComponent(super_comp);
 	my_time_ = 1;
 
@@ -81,9 +81,9 @@ void ComponentCache::init(Component &super_comp) {
 		cout << " Free RAM " << free_ram / 1000000 << "MB" << endl;
 	}
 
-	cout << "Maximum cache size:\t"
-			<< statistics_.maximum_cache_size_bytes_ / 1000000 << " MB" << endl
-			<< endl;
+	//cout << "Maximum cache size:\t"
+	//		<< statistics_.maximum_cache_size_bytes_ / 1000000 << " MB" << endl
+	//		<< endl;
 
 	assert(!statistics_.cache_full());
 
